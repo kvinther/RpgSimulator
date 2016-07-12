@@ -40,6 +40,8 @@ public class ConnectionHandler implements Runnable {
 			e.printStackTrace();
 		}
 
+		commServer.gameServer.sendState(id);
+
 		// Listening for messages from client
 		while(true) {
 			try {
