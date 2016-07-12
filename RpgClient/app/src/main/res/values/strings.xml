@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RpgClient</string>
+    <string name="search_text"><![CDATA[<No servers found>]]></string>
+    <string name="server_name_text">GameServer: Call of Lumumba</string>
+    <string name="server_socket_text">...</string>
+    <string name="connect_button_text">Connect</string>
+    <string name="search_button_text">Search for server</string>
+</resources>
