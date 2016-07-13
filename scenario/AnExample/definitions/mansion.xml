@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<scene xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="scene.xsd"
+       id="mansion">
+    <comments>
+        In this scene the players will explorer the old mansion that lies upon the hill.
+    </comments>
+    <locations>
+        <location id="driveway" name="The driveway in front of the mansion.">
+            <description>
+                A gravel driveway in front of the old mansion.<br/>
+                The <ifelse cond="world/timeofday=night">pale moon|glowing sun</ifelse>
+                hangs high in the sky.
+            </description>
+            <exits>
+                <exit name="The grand door beckons you to enter..." ref="the-hall"/>
+                <exit name="An old road leads away to the south." ref="the-road/mansion" />
+            </exits>
+        </location>
+        <location id="the-hall" name="A grand hallway.">
+            <exits>
+                <exit name="Back outside" ref="driveway"/>
+                <exit name="The study" ref="study"/>
+            </exits>
+        </location>
+        <location id="study" name="An epic study of quite remarkable eqicness.">
+            <stuff>
+                <container name="An old bookcase">
+                    <description>
+                        The bookcase looks older than time itself.
+                        <if cond="flags/found-book==false">
+                            An old tome bound in black leather lies upon the middle shelf.
+                        </if>
+                    </description>
+                </container>
+                <container name="An old chest." size="4">
+                    <lock locked="true" key="ye-old-key"/>
+                    <contents>
+                        <item id="items/ye-old-key" name="The old key that cannot be gotten."/>
+                        <item id="items/pocket-lint" name="Pocket lint.">
+                            <description>
+                                A fluffy thing...
+                            </description>
+                        </item>
+                    </contents>
+                </container>
+            </stuff>
+            <exits>
+                <exit name="Back to the hall" ref="the-hall"/>
+            </exits>
+        </location>
+    </locations>
+</scene>

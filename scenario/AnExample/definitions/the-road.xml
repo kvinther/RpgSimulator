@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<scene xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="scene.xsd"
+       id="the-road">
+    <comments>
+        In this scene the players will travel along an old road the leads to the mansion.
+    </comments>
+    <locations>
+        <location id="mansion" name="The end of the road">
+            <exits>
+                <exit name="The road leads into a driveway before the mansion." ref="mansion/driveway" />
+                <exit name="The road winds its way back towards the village." ref="road2"/>
+            </exits>
+        </location>
+        <location id="road2" name="The old road">
+            <exits>
+                <exit name="The road continues." ref="mansion"/>
+                <exit name="The road winds its way back towards the village." ref="road1"/>
+            </exits>
+        </location>
+        <location id="road1" name="The old road">
+            <exits>
+                <exit name="The road towards the mansion." ref="road2"/>
+                <exit name="Back to the village" ref="village/old-road">
+                    <description>
+                        The road winds its way back towards the village. 
+                        <if cond="world/season=fall">Fallen leaves almost cover the road.</if>
+                    </description>
+                </exit>
+            </exits>
+        </location>
+    </locations>
+</scene>
