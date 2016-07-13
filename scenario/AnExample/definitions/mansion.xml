@@ -18,6 +18,13 @@
             </exits>
         </location>
         <location id="the-hall" name="A grand hallway.">
+            <stuff>
+                <container name="A small box on the wall.">
+                    <contents>
+                        <item id="items/ye-old-key" name="The old key that cannot be gotten."/>
+                    </contents>
+                </container>
+            </stuff>
             <exits>
                 <exit name="Back outside" ref="driveway"/>
                 <exit name="The study" ref="study"/>
@@ -32,11 +39,13 @@
                             An old tome bound in black leather lies upon the middle shelf.
                         </if>
                     </description>
+                    <contents>
+                        <item id="necronomicon" name="A plain old black tome."></item>
+                    </contents>
                 </container>
                 <container name="An old chest." size="4">
-                    <lock locked="true" key="ye-old-key"/>
+                    <lock locked="true" key="items/ye-old-key" strength="10"/>
                     <contents>
-                        <item id="items/ye-old-key" name="The old key that cannot be gotten."/>
                         <item id="items/pocket-lint" name="Pocket lint.">
                             <description>
                                 A fluffy thing...

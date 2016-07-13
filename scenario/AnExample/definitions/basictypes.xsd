@@ -30,13 +30,24 @@
         <xs:attribute name="name" type="xs:string" use="required"/>
     </xs:complexType>
     
-    <!-- DEFINE: lock -->
+    <!-- DEFINE: lock 
+    A lock can prevent "open" actions on objects like containers and doors.
+    * is locked by default.
+    * can have a strength if it can be forced open.
+    * can have a key that opens it.
+    -->
     <xs:complexType name="lock">
-        <xs:attribute name="locked" type="xs:boolean" />
-        <xs:attribute name="key" type="xs:string"/>
+        <xs:attribute name="locked" type="xs:boolean" use="optional"/>
+        <xs:attribute name="key" type="xs:string" use="optional"/>
+        <xs:attribute name="strength" type="xs:int" use="optional"/>
     </xs:complexType>
     
-    <!-- DEFINE: container -->
+    <!-- DEFINE: container 
+    A container holds items.
+    * can have a lock.
+    * can have a size it things can be placed in it.
+    * can have items as content.
+    -->
     <xs:complexType name="container">
         <xs:sequence>
             <!-- If no desciption is given, we simply use "name" as the description. -->
