@@ -1,1 +1,1 @@
-Â# RpgSimulator
+# RpgSimulator
