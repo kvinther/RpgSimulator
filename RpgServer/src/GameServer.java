@@ -32,23 +32,35 @@ public class GameServer {
 		GameServer server = new GameServer();
 	}
 
+
 	public void updateState(String msg) {
 		String[] arr = msg.split(" ");
 		int id = Integer.parseInt(arr[0]);
-		String time = msg.substring(arr[0].length() + 1);
 
 		totalSum++;
-		String response = id + " ";
-
 		if(state.containsKey(id)) {
-			int mySum = state.get(id) + 1;
-			state.put(id,mySum);
-			response += mySum + " " + totalSum;
+			state.put(id,state.get(id)+1);
 		} else {
-			state.put(id,1);
-			response += 1 + " " + totalSum;
+			state.put(id, 1);
 		}
 
-		commServer.sendMessage(response, id);
-	}	
+		sendStateToAll();
+	}
+
+    public synchronized void sendState(int id) {
+		String response;
+		if(state.containsKey(id)) {
+			response = id + " " + state.get(id) + " " + totalSum;
+		} else {
+			response = id + " 0 " + totalSum;
+		}
+
+        commServer.sendMessage(response, id);
+    }
+
+	public void sendStateToAll() {
+		for(int id : state.keySet()) {
+			sendState(id);
+		}
+	}
 }

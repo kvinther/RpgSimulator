@@ -69,14 +69,16 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void receive(String receivedMsg) {
+        Log.i(TAG,receivedMsg);
+
         String[] msg = receivedMsg.split(" ");
-        if (msg.length > 1) {
+        if (msg.length > 2) {
             String id = msg[0];
             String my = msg[1];
             String total = msg[2];
 
-            mTotalSum.setText(total);
-            mMySum.setText(my);
+            mTotalSum.setText("Total: " + total);
+            mMySum.setText("My sum: " + my);
 
             mySum = Integer.parseInt(my);
             totalSum = Integer.parseInt(total);
