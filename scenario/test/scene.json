@@ -1,0 +1,28 @@
+{
+  "$type": "Scenario.Game.Scene, Scenario",
+  "Comments": "The haunted house.",
+  "Locations": [
+    {
+      "$type": "Scenario.Game.Location, Scenario",
+      "Name": "A gravel driveway in front of a mansion.",
+      "Description": "A large circular driveway with a odd-looking fountain on a small lawn.\r\nThe weed is slowly taking over the place. The sky is <lua>if globals.isDay() then return 'blue' else return 'pitch black' </lua>.",
+      "Exits": [
+        {
+          "$type": "Scenario.Game.Exit, Scenario",
+          "Name": "North",
+          "Description": "The mansion entrance.",
+          "DestinationId": "urn:location:hountedhouse:entrance"
+        },
+        {
+          "$type": "Scenario.Game.Exit, Scenario",
+          "Name": "South",
+          "Description": "The road back towards the village.",
+          "DestinationId": "urn:location:theroad:endoftheroad"
+        }
+      ],
+      "Containers": [],
+      "Id": "urn:location:hountedhouse:driveway"
+    }
+  ],
+  "Id": "urn:scene:hauntedhouse"
+}

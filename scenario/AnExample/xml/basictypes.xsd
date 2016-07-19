@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <!-- DEFINE: description 
+    A generic description element that can hold formatting and simple conditionals.
+    -->
+    <xs:simpleType name="description">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <!-- DEFINE: item -->
+    <xs:complexType name="item">
+        <xs:sequence>
+            <!-- If no desciption is given, we simply use "name" as the description. -->
+            <xs:element name="description" type="description" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+    
+    <!-- DEFINE: lock 
+    A lock can prevent "open" actions on objects like containers and doors.
+    * is locked by default.
+    * can have a strength if it can be forced open.
+    * can have a key that opens it.
+    -->
+    <xs:complexType name="lock">
+        <xs:attribute name="locked" type="xs:boolean" use="optional"/>
+        <xs:attribute name="key" type="xs:string" use="optional"/>
+        <xs:attribute name="strength" type="xs:int" use="optional"/>
+    </xs:complexType>
+    
+    <!-- DEFINE: container 
+    A container holds items.
+    * can have a lock.
+    * can have a size it things can be placed in it.
+    * can have items as content.
+    -->
+    <xs:complexType name="container">
+        <xs:sequence>
+            <!-- If no desciption is given, we simply use "name" as the description. -->
+            <xs:element name="description" type="description" minOccurs="0"/>
+            <xs:element name="lock" type="lock" minOccurs="0"/>
+            <xs:element name="contents" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence maxOccurs="unbounded">
+                        <xs:element name="item" type="item"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="size" type="xs:int" use="optional"/>
+    </xs:complexType>
+</xs:schema>

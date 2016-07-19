@@ -1,0 +1,17 @@
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\bin\Debug\Scenario.Test.dll
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\bin\Debug\Scenario.Test.pdb
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\bin\Debug\Scenario.exe
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\bin\Debug\Scenario.pdb
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\obj\Debug\Scenario.Test.csprojResolveAssemblyReference.cache
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\obj\Debug\Scenario.Test.dll
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\obj\Debug\Scenario.Test.pdb
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\bin\Debug\TestFiles\mansion.xml
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\bin\Debug\TestFiles\the-road.xml
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\bin\Debug\TestFiles\basictypes.xsd
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\bin\Debug\TestFiles\scene.xsd
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\bin\Debug\DynamicLua.dll
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\bin\Debug\Newtonsoft.Json.dll
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\bin\Debug\Newtonsoft.Json.xml
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\bin\Debug\Scenario.Test.dll.config
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\bin\Debug\NLua.dll
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\Scenario.Test\bin\Debug\KeraLua.dll
