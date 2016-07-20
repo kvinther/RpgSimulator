@@ -56,6 +56,8 @@ namespace Scenario.GameObjects
         public int Size { get; set; }
         public string Description { get; set; }
         public Lock Lock { get; set; }
+        public bool Open { get; set; }
+
         public ICollection<Item> Items;
     }
 
@@ -157,6 +159,15 @@ namespace Scenario.GameObjects
             return scene;
         }
 
+        public static string LowerCaseFirst(this string str)
+        {
+            if (string.IsNullOrEmpty(str) || char.IsLower(str, 0))
+                return str;
+
+            return char.ToLowerInvariant(str[0]) 
+                + str.Length == 1 ? "" : str.Substring(1);
+        }
+
         public static string EvaluateLuaSnippets(this string s, Lua lua)
         {
             const string startToken = "<lua>";
@@ -164,7 +175,6 @@ namespace Scenario.GameObjects
             var parts = s.Split(new[] {startToken}, StringSplitOptions.RemoveEmptyEntries);
             var b = new StringBuilder();
 
-            var inScript = false;
             foreach (var part in parts)
             {
                 if (part.Contains(endToken))
@@ -182,7 +192,6 @@ namespace Scenario.GameObjects
                     b.Append(part);
                 }
             }
-
             return b.ToString();
         }
     }
