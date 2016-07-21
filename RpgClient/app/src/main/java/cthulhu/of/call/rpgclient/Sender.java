@@ -1,6 +1,8 @@
 package cthulhu.of.call.rpgclient;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -12,11 +14,15 @@ public class Sender implements Runnable {
 
     private static final String TAG = "Sender";
 
-    String msg;
-    DataOutputStream out;
+    private final String error;
+    private final Context context;
+    private final String msg;
+    private final DataOutputStream out;
 
-    public Sender(String msg, DataOutputStream out) {
+    public Sender(String msg, String error, Context context, DataOutputStream out) {
         this.msg = msg;
+        this.error = error;
+        this.context = context;
         this.out = out;
     }
 
@@ -27,6 +33,7 @@ public class Sender implements Runnable {
             out.flush();
         } catch (IOException e) {
             Log.i(TAG, e.toString());
+            Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
         }
     }
 }
