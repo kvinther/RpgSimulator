@@ -1,5 +1,6 @@
 package cthulhu.of.call.rpgclient;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -26,16 +28,18 @@ public class GameActivity extends AppCompatActivity {
 
     String mIp;
     int mPort;
-    int connectionId;
 
-    int mySum;
-    int totalSum;
+    int mySum = 0;
+    int totalSum = 0;
+    private String playerInfo;
 
     CommClient commClient;
+    Thread commClientThread;
 
     Button mPlusButton;
     TextView mMySum;
     TextView mTotalSum;
+    TextView mPlayerInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,49 +48,61 @@ public class GameActivity extends AppCompatActivity {
 
         mIp = getIntent().getStringExtra("IP");
         mPort = getIntent().getIntExtra("PORT", 0);
-        Log.i(TAG,"IP:" + mIp + " - Port:" + mPort);
-
         if (savedInstanceState != null) {
             mySum = savedInstanceState.getInt("MYSUM");
             totalSum = savedInstanceState.getInt("TOTALSUM");
+            playerInfo = savedInstanceState.getString("PLAYERINFO");
         }
 
+        // Creating a commClient, a thread for it to run in, and running it
         commClient = new CommClient(mIp,mPort,this);
-        new Thread(commClient).start();
+        commClientThread = new Thread(commClient);
+        commClientThread.start();
 
         mPlusButton = (Button) findViewById(R.id.plus_button);
         mPlusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i(TAG,"Sending message");
-                String msg = new Date().toString();
-                commClient.send(msg);
+                commClient.send("MESSAGE","Failed to send state update message");
             }
         });
 
         mMySum = (TextView) findViewById(R.id.my_sum);
         mTotalSum = (TextView) findViewById(R.id.total_sum);
+        mPlayerInfo = (TextView) findViewById(R.id.player_info);
+
+        updateUI();
     }
 
     public void receive(String receivedMsg) {
-        Log.i(TAG,receivedMsg);
+        Log.i(TAG, receivedMsg);
 
         String[] msg = receivedMsg.split(" ");
-        if (msg.length > 2) {
-            String id = msg[0];
-            String my = msg[1];
-            String total = msg[2];
+        mySum = Integer.parseInt(msg[0]);
+        totalSum = Integer.parseInt(msg[1]);
 
-            mTotalSum.setText("Total: " + total);
-            mMySum.setText("My sum: " + my);
+        updateUI();
+    }
 
-            mySum = Integer.parseInt(my);
-            totalSum = Integer.parseInt(total);
+    public void updateUI() {
+        mMySum.setText("My sum: " + mySum);
+        mTotalSum.setText("Total: " + totalSum);
+        mPlayerInfo.setText("Player " + playerInfo);
+    }
 
-        } else {
-            connectionId =  Integer.parseInt(msg[0]);
-            Log.i(TAG, "Setting connection ID: " + connectionId);
-        }
+    public void killActivity(String toastMsg) {
+        Toast toast = Toast.makeText(this, toastMsg, Toast.LENGTH_SHORT);
+        toast.show();
+        finish();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        commClient.send("DISCONNECT","Failed to send disconnect message to server");
+        // commClient.killConnection();
+        commClientThread.interrupt();
     }
 
     @Override
@@ -94,7 +110,14 @@ public class GameActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putInt("MYSUM", mySum);
         outState.putInt("TOTALSUM", totalSum);
+        outState.putString("PLAYERINFO", playerInfo);
     }
 
+    public void setPlayerInfo(String playerInfo) {
+        this.playerInfo = playerInfo;
+    }
 
+    public String getPlayerInfo() {
+        return playerInfo;
+    }
 }

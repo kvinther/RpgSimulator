@@ -46,7 +46,30 @@ public class CommServer {
 		}
 	}
 
-	// Listens for and responds to UDP traffic
+	public synchronized void addNewPlayer(ConnectionHandler handler) {
+        Player player = new Player(handler.connectionId);
+        gameServer.addPlayer(player);
+    }
+
+    public synchronized void killHandler(ConnectionHandler handler) {
+        // TODO
+    }
+
+    public void addPlayerAssociation(String connectionId) {
+        if (!gameServer.players.containsKey(connectionId)) {
+            Player player = new Player(connectionId);
+            player.setConnected(true);
+            gameServer.players.put(connectionId, player);
+        }
+    }
+
+    public void removePlayerAssociation(String connectionId) {
+        if (gameServer.players.containsKey(connectionId)) {
+
+        }
+    }
+
+    // Listens for and responds to UDP traffic
 	private class DiscoveryThread implements Runnable {
 
 		private static final String TAG = "DiscoveryThread";

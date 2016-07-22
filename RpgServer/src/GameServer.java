@@ -7,6 +7,8 @@ public class GameServer {
 	private static final String TAG = "GameServer";
 	
 	HashMap<Integer,Integer> state;
+
+	HashMap<String,Player> players;
 	int totalSum;
 	BlockingQueue<String> msgQueue;
 	CommServer commServer;
@@ -14,6 +16,7 @@ public class GameServer {
 	public GameServer() {
 		System.out.println(TAG + ": Started");
 		state = new HashMap<Integer,Integer>();
+		players = new HashMap<>();
 		totalSum = 0;
 		msgQueue = new LinkedBlockingQueue<String>();
 		commServer = new CommServer(this);
@@ -32,6 +35,9 @@ public class GameServer {
 		GameServer server = new GameServer();
 	}
 
+    public void addPlayer(Player player) {
+
+    }
 
 	public void updateState(String msg) {
 		String[] arr = msg.split(" ");
