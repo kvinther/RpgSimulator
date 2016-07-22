@@ -1,0 +1,4 @@
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\EventMessaging\bin\Debug\RpgSim.EventMessaging.dll
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\EventMessaging\bin\Debug\RpgSim.EventMessaging.pdb
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\EventMessaging\obj\Debug\RpgSim.EventMessaging.dll
+C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\EventMessaging\obj\Debug\RpgSim.EventMessaging.pdb

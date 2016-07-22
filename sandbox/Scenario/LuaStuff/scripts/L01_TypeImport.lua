@@ -1,0 +1,15 @@
+luanet.load_assembly("RpgSim")
+
+Scene      = luanet.import_type("RpgSim.GameObjects.Scene")
+Location   = luanet.import_type("RpgSim.GameObjects.Location")
+Container  = luanet.import_type("RpgSim.GameObjects.Container")
+Item       = luanet.import_type("RpgSim.GameObjects.Item")
+Lock       = luanet.import_type("RpgSim.GameObjects.Lock")
+Exit       = luanet.import_type("RpgSim.GameObjects.Exit")
+
+assert(Scene)
+assert(Location)
+assert(Container)
+assert(Item)     
+assert(Lock)     
+assert(Exit)

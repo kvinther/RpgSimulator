@@ -1,0 +1,104 @@
+{
+  "$type": "RpgSim.GameObjects.Scene, RpgSim",
+  "Comments": "The haunted house.",
+  "Locations": [
+    {
+      "$type": "RpgSim.GameObjects.Location, RpgSim",
+      "Name": "A gravel driveway in front of a mansion.",
+      "Description": "A large circular driveway with a odd-looking fountain on a small lawn.\r\nThe weed is slowly taking over the place. The sky is <lua>if GetGlobal('g:timeofday') == 'day' then return 'blue' else return 'pitch black' end</lua>.",
+      "Items": [],
+      "Containers": [],
+      "Exits": [],
+      "Id": "urn:location:hauntedhouse:driveway"
+    },
+    {
+      "$type": "RpgSim.GameObjects.Location, RpgSim",
+      "Name": "A grand hallway",
+      "Description": "You find yourselves in a beautifil old victorian styled hallway.",
+      "Items": [],
+      "Containers": [
+        {
+          "$type": "RpgSim.GameObjects.Container, RpgSim",
+          "Items": [
+            {
+              "$type": "RpgSim.GameObjects.Item, RpgSim",
+              "Name": "Ye old key",
+              "Description": "A plain-looking old key.",
+              "Id": "urn:keys:ye-old-key"
+            }
+          ],
+          "Name": "A small box.",
+          "Size": 1,
+          "Description": "A small box hangs on the wall.",
+          "Lock": null,
+          "Id": "urn:container:smallkeybox"
+        }
+      ],
+      "Exits": [
+        {
+          "$type": "RpgSim.GameObjects.Exit, RpgSim",
+          "Name": "The study",
+          "Description": "A low door leads into a small study.",
+          "DestinationId": "urn:location:hauntedhouse:study",
+          "Id": null
+        },
+        {
+          "$type": "RpgSim.GameObjects.Exit, RpgSim",
+          "Name": "Back outside",
+          "Description": "Back outside",
+          "DestinationId": "urn:location:hauntedhouse:driveway",
+          "Id": null
+        }
+      ],
+      "Id": "urn:location:hauntedhouse:entrance"
+    },
+    {
+      "$type": "RpgSim.GameObjects.Location, RpgSim",
+      "Name": "The study",
+      "Description": "An old study room.",
+      "Items": [
+        {
+          "$type": "RpgSim.GameObjects.Item, RpgSim",
+          "Name": "An old dusty tome",
+          "Description": "An old tome bound in black leather sits upon an old bookcase.",
+          "Id": "urn:item:thenecronomicon"
+        }
+      ],
+      "Containers": [
+        {
+          "$type": "RpgSim.GameObjects.Container, RpgSim",
+          "Items": [
+            {
+              "$type": "RpgSim.GameObjects.Item, RpgSim",
+              "Name": "A shining silver coin",
+              "Description": "A shining silver coin.",
+              "Id": "urn:item:asilvercoin"
+            }
+          ],
+          "Name": null,
+          "Size": 4,
+          "Description": "An old chest.",
+          "Lock": {
+            "$type": "RpgSim.GameObjects.Lock, RpgSim",
+            "Locked": true,
+            "Key": "urn:keys:ye-old-key",
+            "Strength": 12,
+            "Id": "urn:lock:thechestofdoom"
+          },
+          "Id": "urn:container:thechestofdoom"
+        }
+      ],
+      "Exits": [
+        {
+          "$type": "RpgSim.GameObjects.Exit, RpgSim",
+          "Name": "Back to the hall",
+          "Description": "Back to the hall",
+          "DestinationId": "urn:location:hauntedhouse:entrance",
+          "Id": null
+        }
+      ],
+      "Id": "urn:location:hauntedhouse:study"
+    }
+  ],
+  "Id": "urn:scene:hauntedhouse"
+}

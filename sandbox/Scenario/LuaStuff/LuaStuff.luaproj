@@ -24,7 +24,25 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ObjectFunctions.lua" />
+    <None Include="scripts\L00_CommonFunctions.lua">
+      <Publish>False</Publish>
+    </None>
+    <None Include="scripts\L02_ObjectFunctions.lua">
+      <Publish>False</Publish>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Demo\" />
+    <Folder Include="Demo\scripts\" />
+    <Folder Include="Demo\scenes\" />
+    <Folder Include="Demo\scenes\hauntedhouse\" />
+    <Folder Include="scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Demo\scenes\hauntedhouse\driveway.lua" />
+    <Compile Include="Demo\scenes\hauntedhouse\init.lua" />
+    <Compile Include="Demo\scripts\ScenarioGlobals.lua" />
+    <Compile Include="scripts\L01_TypeImport.lua" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>

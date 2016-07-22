@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scenario.Test", "Scenario.T
 EndProject
 Project("{5697748A-77EF-44CA-8824-4F5637E5945B}") = "LuaStuff", "LuaStuff\LuaStuff.luaproj", "{E439935D-B2A2-46AE-856D-2AA408428F33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpgDevUI", "RpgDevUI\RpgDevUI.csproj", "{7F1138EE-B9BD-45E1-A449-93D6BB601285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventMessaging", "EventMessaging\EventMessaging.csproj", "{FB3D4D27-E619-409B-A7F5-A7610B9DA1C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{E439935D-B2A2-46AE-856D-2AA408428F33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E439935D-B2A2-46AE-856D-2AA408428F33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E439935D-B2A2-46AE-856D-2AA408428F33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F1138EE-B9BD-45E1-A449-93D6BB601285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F1138EE-B9BD-45E1-A449-93D6BB601285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F1138EE-B9BD-45E1-A449-93D6BB601285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F1138EE-B9BD-45E1-A449-93D6BB601285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB3D4D27-E619-409B-A7F5-A7610B9DA1C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB3D4D27-E619-409B-A7F5-A7610B9DA1C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB3D4D27-E619-409B-A7F5-A7610B9DA1C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB3D4D27-E619-409B-A7F5-A7610B9DA1C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

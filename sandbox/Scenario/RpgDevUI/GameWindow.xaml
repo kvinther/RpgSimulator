@@ -1,0 +1,50 @@
+﻿<Window x:Class="RpgDevUI.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:w="clr-namespace:RpgDevUI"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="RPG Dev UI" Height="600" Width="800"
+        Name="MyGameWindow"
+        KeyDown="GameWindow_OnKeyDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition MaxHeight="10" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition MaxWidth="200"></ColumnDefinition>
+            <ColumnDefinition MaxWidth="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" 
+              DataContext="{Binding Path=MyGameProxy}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label DockPanel.Dock="Top" Background="Black" BorderBrush="Yellow" BorderThickness="3" Foreground="Yellow" HorizontalContentAlignment="Center">Server</Label>
+            <TextBlock Grid.Row="1" x:Name="ServerText" Background="Black" TextWrapping="WrapWithOverflow"
+                       Text="{Binding TvText, Mode=Default, UpdateSourceTrigger=PropertyChanged}"
+                       />
+            <TextBox Grid.Row="2" 
+                     x:Name="ServerInput" 
+                     Background="SandyBrown"
+                     AcceptsReturn="True"
+                     AcceptsTab="True"
+                     Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            
+            <!--<TextBox DockPanel.Dock="Bottom" Background="DarkGreen" MaxHeight="20">Input line</TextBox>-->
+        </Grid>
+        <StackPanel Name="Player1Panel"  Grid.Row="0" Grid.Column="1" Background="Aquamarine"></StackPanel>
+        <!--<Canvas Name="Player1" Grid.Row="0" Grid.Column="1" Background="Aquamarine"/>-->
+        <Canvas Name="Player2" Grid.Row="0" Grid.Column="2" Background="CadetBlue"/>
+        <GridSplitter Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Background="DarkBlue" 
+                      ResizeDirection="Rows" ResizeBehavior="PreviousAndNext" HorizontalAlignment="Stretch"/>
+        <Canvas Name="Log1" Grid.Row="2" Grid.Column="0" Background="DarkOliveGreen"/>
+        <Canvas Name="Log2" Grid.Row="2" Grid.Column="1" Background="DarkGreen"/>
+        <Canvas Name="Lua"  Grid.Row="2" Grid.Column="2" Background="DarkGoldenrod"/>
+    </Grid>
+</Window>

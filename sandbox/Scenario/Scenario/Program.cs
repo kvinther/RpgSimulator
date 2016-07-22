@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Scenario
+﻿namespace RpgSim
 {
     class Program
     {
         static void Main(string[] args)
         {
+            var game = new Game("Demo");
+            var engine = new Engine(game);
 
+            engine.ReloadCurrentLocation();
         }
     }
 }

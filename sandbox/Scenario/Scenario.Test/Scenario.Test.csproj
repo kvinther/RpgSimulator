@@ -63,10 +63,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="EventMessagingTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EventMessaging\EventMessaging.csproj">
+      <Project>{fb3d4d27-e619-409b-a7f5-a7610b9da1c2}</Project>
+      <Name>EventMessaging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Scenario\Scenario.csproj">
       <Project>{a306f698-cce5-49b7-9e2d-fde3462aa9a8}</Project>
       <Name>Scenario</Name>
@@ -114,7 +119,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
-xcopy /s /y "C:\Users\klv\Dropbox\w\git\rpgsimulator\sandbox\Scenario\packages\NLua.1.3.2.1\lib\native\*.*" "$(TargetDir)"</PostBuildEvent>
+xcopy /s /y "$(SolutionDir)packages\NLua.1.3.2.1\lib\native\*.*" "$(TargetDir)"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
